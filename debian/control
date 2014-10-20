@@ -1,0 +1,44 @@
+Source: lda
+Maintainer: Allen B. Riddell <abr@ariddell.org>
+Section: python
+Priority: optional
+Build-Depends: debhelper (>= 8),
+               dh-python,
+               python-all (>= 2.7.3~),
+               python-all-dev (>= 2.7.3~),
+               python-setuptools,
+               python3-all,
+               python3-all-dev,
+               python3-setuptools,
+               python-oslotest,
+               python3-oslotest,
+               python-six,
+               python3-six,
+               python-pbr,
+               python3-pbr,
+               python-numpy,
+               python3-numpy,
+Standards-Version: 3.9.6
+X-Python-Version: >= 2.7
+X-Python3-Version: >= 3.3
+Homepage: https://pythonhosted.org/lda/
+Vcs-Browser: http://github.com/ariddell/lda
+Vcs-Git: git://github.com/ariddell/lda.git
+
+Package: python3-lda
+Architecture: any
+Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends}, python3-numpy
+Description: Topic modeling with latent Dirichlet allocation
+ lda implements latent Dirichlet allocation (LDA) using collapsed Gibbs
+ sampling.
+ .
+ This package contains the Python 3.x module.
+
+Package: python-lda
+Architecture: any
+Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends}, python-numpy
+Description: Topic modeling with latent Dirichlet allocation for Python 3
+ lda implements latent Dirichlet allocation (LDA) using collapsed Gibbs
+ sampling.
+ .
+ This package contains the Python 2.7 module.

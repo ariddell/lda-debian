@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+
+export PYBUILD_NAME=lda
+# Package contains Cython generated C/C++ files
+export PYBUILD_BEFORE_BUILD=make cython
+export PYBUILD_BEFORE_CLEAN=rm -f lda/_lda.c
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
