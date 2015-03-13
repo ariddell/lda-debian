@@ -6,5 +6,11 @@ export PYBUILD_NAME=lda
 export PYBUILD_BEFORE_BUILD=make cython
 export PYBUILD_BEFORE_CLEAN=rm -f lda/_lda.c
 
+# set PBR_VERSION from changelog as it pbr cannot get it from git
+srcpkg = $(shell LC_ALL=C dpkg-parsechangelog | grep '^Source:' | cut -d ' ' -f 2,2)
+debver = $(shell LC_ALL=C dpkg-parsechangelog | grep '^Version:' | cut -d ' ' -f 2,2)
+uver = $(shell echo $(debver) | sed -e 's,-[^-]*$$,,g' )
+export PBR_VERSION=$(uver)
+
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
